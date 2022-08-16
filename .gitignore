@@ -14,7 +14,7 @@
 DeskTopBuild/
 
 # keep the *.asset files from Library to preserve Build settings for one
-![Ll]ibrary/*.asset
+!/[Ll]ibrary/*.asset
 
 #Added so as to not generate a change when just moving between Scenes in Unity Editor
 UserSettings/EditorUserSettings.asset
