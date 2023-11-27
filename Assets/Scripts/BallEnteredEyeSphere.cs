@@ -10,7 +10,7 @@ public class BallEnteredEyeSphere : MonoBehaviour
     private bool eyeIsFlipped;
     private Vector3 initPos, initScale;
     private IEnumerator putTheBallInTheEye;
-    private int stretchTime = 2;
+    //private int stretchTime = 2;
     private AudioSource longSuction;
     // Start is called before the first frame update
     void Start()

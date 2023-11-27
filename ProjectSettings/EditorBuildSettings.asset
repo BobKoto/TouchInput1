@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Mobile3Pinball.unity
     guid: b9d4d4735c22e0e44a958d67d88ecba4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneInit.unity
     guid: 8a02647f1ecb377428e33fb988c32812
   - enabled: 1
