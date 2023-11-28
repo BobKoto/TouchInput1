@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=400 height=640 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=400 height=720 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -23,6 +23,13 @@
         <div id="unity-build-title">Pinball01</div>
       </div>
     </div>
+  <style>
+    body {
+        background-color: #0000CC; /* Specify your desired color using hex or other CSS color values */
+        margin: 0;
+    }
+  </style>
+
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -95,7 +102,7 @@
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
         canvas.style.width = "400px";
-        canvas.style.height = "640px";
+        canvas.style.height = "720px";
       }
 
       canvas.style.background = "url('" + buildUrl + "/pinball01.jpg') center / cover";
