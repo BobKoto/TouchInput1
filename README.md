@@ -10,3 +10,6 @@ Download and have fun playing, refactoring, cleaning up a mess and learning!
 Note: Around 11/30/23 this project was "platform switched" in Unity from Android to WebGL. Some minor canvas layouts were changed since, and the effects of those changes in terms of switching the Unity platform back to Android have not been tested.  
 
 The WebGL playable "Beta" version of the game is at: [Play Pinball](https://bobkoto.github.io/bob-site/pinball01)
+
+For now on lap/desktops, to change the size of the game's display (if too small or too large) do Shift_Ctrl + or Shift_Ctrl -
+
