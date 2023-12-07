@@ -39,7 +39,7 @@ public class ScoreKeeper : MonoBehaviour
 
 
     private static  GameObject gameInfoPanel;
-    
+    GameObject rightFlipper, leftFlipper, shootButton; // items to respectively enable/disable when GameInfoPanel is disabled/enabled
 
     // Start is called before the first frame update
     private void Awake()
@@ -81,13 +81,17 @@ public class ScoreKeeper : MonoBehaviour
         gameInfoPanel = GameObject.Find("/Canvas/GameInfoPanel");
         if (gameInfoPanel) gameInfoPanel.SetActive(false);
 
+        leftFlipper = GameObject.Find("/Canvas/LeftFlipper");
+        rightFlipper = GameObject.Find("/Canvas/RightFlipper");
+        shootButton = GameObject.Find("/Canvas/Shoot");
+
         transformDiscH2chess = GameObject.Find("DiscH2chess").GetComponent<Transform>();
         transformVortex1 = GameObject.Find("Vortex1").GetComponent<Transform>();
         transformSurfaceEye = GameObject.Find("SurfaceEye").GetComponent<Transform>();
      //   transformEyeSphere = GameObject.Find("EyeSphere").GetComponent<Transform>();
-        Debug.Log(" Vortex1 transform = " + transformVortex1.position);
-        Debug.Log(" DiscH2chess transform = " + transformDiscH2chess.position);
-        Debug.Log(" SurfaceEye transform = " + transformSurfaceEye.position);
+        //Debug.Log(" Vortex1 transform = " + transformVortex1.position);
+        //Debug.Log(" DiscH2chess transform = " + transformDiscH2chess.position);
+        //Debug.Log(" SurfaceEye transform = " + transformSurfaceEye.position);
         //     Debug.Log(" EyeSphere transform = " + transformEyeSphere.position);
         v3Vortex1 = new Vector3(transformVortex1.position.x, transformVortex1.position.y, transformVortex1.position.z);
         v3SurfaceEye = new Vector3(transformSurfaceEye.position.x, transformSurfaceEye.position.y, transformSurfaceEye.position.z);
@@ -178,12 +182,14 @@ public class ScoreKeeper : MonoBehaviour
         audioInfoButtonOk.loop = false;
         audioInfoButtonOk.Play();
         gameInfoPanel.SetActive(false);
+        if (leftFlipper) leftFlipper.SetActive(true);
+        if (rightFlipper) rightFlipper.SetActive(true);
+        if (shootButton) shootButton.SetActive(true);
         if (!gameOver)
         {
             coroutine = WaitOnAudio(2);  //These 2 lines wait 2 seconds then start/restart the background audio
             StartCoroutine(coroutine);
-        }
-        
+        }  
     }
     public void OnButtonGameInfo()   //This is NOT using InputManager - canvas button OnClick
     {
@@ -191,6 +197,9 @@ public class ScoreKeeper : MonoBehaviour
         audioInfoButton.loop = false;
         audioInfoButton.Play();
         gameInfoPanel.SetActive(true);
+        if (leftFlipper) leftFlipper.SetActive(false);
+        if (rightFlipper) rightFlipper.SetActive(false);
+        if (shootButton) shootButton.SetActive(false);
     }
     public static void SetAnimation(Animation anim, bool play)  //Allow other scripts to start/stop animations
     {
