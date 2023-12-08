@@ -24,7 +24,22 @@ public class PauseResumeGame : MonoBehaviour
         // Set time scale based on the state
         Time.timeScale = isPaused ? 0 : 1;
 
+        DoPauseResume();
+
+    }
+    void DoPauseResume()
+    {
         // Update the button text based on the state
         pauseButton.GetComponentInChildren<TMP_Text>().text = isPaused ? "Resume" : "Pause";
+        if (isPaused)
+        {
+            //Pause the background audio
+            ScoreKeeper.audioBackground.Pause();
+        }
+        else
+        {
+            //Resume the background audio
+            ScoreKeeper.audioBackground.Play();
+        }
     }
 }

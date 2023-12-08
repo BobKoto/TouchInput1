@@ -7,7 +7,7 @@ public class AnimateUIObject : MonoBehaviour
     public float rotateSpeed = 100;
     public bool showDebug = false;
 
-    void Start()
+    void OnEnable()   //12/7/23 changed from start cuz we get disabled SetActive(false) when a game ends, then reenabled 
     {
         StartCoroutine(WiggleUIObject());
     }

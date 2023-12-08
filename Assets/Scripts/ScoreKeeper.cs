@@ -40,7 +40,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private static  GameObject gameInfoPanel;
     GameObject rightFlipper, leftFlipper, shootButton; // items to respectively enable/disable when GameInfoPanel is disabled/enabled
-
+    static GameObject pauseButton, newGameButton;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -84,7 +84,9 @@ public class ScoreKeeper : MonoBehaviour
         leftFlipper = GameObject.Find("/Canvas/LeftFlipper");
         rightFlipper = GameObject.Find("/Canvas/RightFlipper");
         shootButton = GameObject.Find("/Canvas/Shoot");
-
+        pauseButton = GameObject.Find("/Canvas/PauseButton");
+        newGameButton = GameObject.Find("/Canvas/NewGame");
+        if (pauseButton) pauseButton.SetActive(false);
         transformDiscH2chess = GameObject.Find("DiscH2chess").GetComponent<Transform>();
         transformVortex1 = GameObject.Find("Vortex1").GetComponent<Transform>();
         transformSurfaceEye = GameObject.Find("SurfaceEye").GetComponent<Transform>();
@@ -119,11 +121,13 @@ public class ScoreKeeper : MonoBehaviour
         scoreTotal += points;
         scoreText.text = scoreTotal.ToString("#,###");
     }
-    public static void UpdateBallInPlay()  //and other stuff
+    public static void UpdateBallInPlay()  //and other stuff   
     {
         ballInPlay += 1;
         if (ballInPlay > ballsPerGame)  //END the Game
         {
+            if (pauseButton) pauseButton.SetActive(false);
+            if (newGameButton) newGameButton.SetActive(true);
             gameOverText.enabled = true;
             gameOver = true;
             audioBackground.Stop();  // audioB //HERE IS where we should try a getter/setter!????????
@@ -163,6 +167,8 @@ public class ScoreKeeper : MonoBehaviour
             if (gOrandomSpinnerCenter) gOrandomSpinnerCenter.SetActive(true);
 
             gameOverText.enabled = false;
+            if (newGameButton) newGameButton.SetActive(false);
+            if (pauseButton) pauseButton.SetActive(true);
             gameOver = false;
             scoreTotal = 0;
             scoreText.text = scoreTotal.ToString();
