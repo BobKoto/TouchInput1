@@ -100,10 +100,10 @@ public class ScoreKeeper : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
     public static void SetMotor(float setForce, float setTargetVelocity, bool motorOnOff)  //removed to solve spinner stalling -- made Child of Disc instead - cross fingers
     {
         var centerHinge = GameObject.Find("RandomSpinner1").GetComponent<HingeJoint>();

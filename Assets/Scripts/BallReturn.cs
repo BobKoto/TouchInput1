@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallReturn : MonoBehaviour
 {
-    private Vector3 startingPosition, startingCenterOfMass;
+    private Vector3 startingPosition; //, startingCenterOfMass;
     private Quaternion startingRotation;
     private Rigidbody rb;
     private Quaternion ballRotation;
@@ -61,11 +61,5 @@ public class BallReturn : MonoBehaviour
                    
         }
        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

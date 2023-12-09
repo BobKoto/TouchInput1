@@ -26,10 +26,10 @@ public class BallEnteredEyeSphere : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
 
