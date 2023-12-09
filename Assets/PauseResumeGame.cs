@@ -9,10 +9,7 @@ public class PauseResumeGame : MonoBehaviour
 
     void Start()
     {
-        // Assuming you have a button with this script attached
         pauseButton = GetComponent<Button>();
-
-        // Attach the button click event
         pauseButton.onClick.AddListener(TogglePause);
     }
 
@@ -25,21 +22,39 @@ public class PauseResumeGame : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
 
         DoPauseResume();
-
     }
     void DoPauseResume()
     {
         // Update the button text based on the state
         pauseButton.GetComponentInChildren<TMP_Text>().text = isPaused ? "Resume" : "Pause";
+
         if (isPaused)
         {
             //Pause the background audio
             ScoreKeeper.audioBackground.Pause();
+
+            // Get the ColorBlock of the button
+            ColorBlock colorBlock = pauseButton.colors;
+
+            // Change the normal color to green when the button is clicked
+            colorBlock.normalColor = Color.green;
+
+            // Apply the modified ColorBlock back to the button
+            pauseButton.colors = colorBlock;
         }
         else
         {
             //Resume the background audio
             ScoreKeeper.audioBackground.Play();
+
+            // Get the ColorBlock of the button
+            ColorBlock colorBlock = pauseButton.colors;
+
+            // Change the normal color to red when the button is clicked
+            colorBlock.normalColor = Color.red;
+
+            // Apply the modified ColorBlock back to the button
+            pauseButton.colors = colorBlock;
         }
     }
 }
