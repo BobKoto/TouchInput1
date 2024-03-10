@@ -25,6 +25,8 @@ public class TestLabTouchPlay : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        // Debug.Log("TestLabTouchPlay started ");
+        Application.targetFrameRate = 30;
     }
     private void OnEnable()
     {
@@ -66,7 +68,7 @@ public class TestLabTouchPlay : MonoBehaviour
         targetHomeRight = Quaternion.Euler(rightHomePosition);
 
         //Cursor.lockState = CursorLockMode.Locked;
-        Application.targetFrameRate = 30;
+
         centerOfScreen = Screen.width / 2;
         topOfScreen = Screen.height;
         //  Debug.Log("TestLabTouchPlay started ");

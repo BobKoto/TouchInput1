@@ -45,7 +45,8 @@ public class ScoreKeeper : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        
+        Screen.fullScreen = true;   // 3/9/24 was commented in StartNewGame()  put back to see what Build does w/it
+
     }
     void Start()
     {
@@ -178,7 +179,6 @@ public class ScoreKeeper : MonoBehaviour
             audioStartNewGame.Play();
             coroutine = WaitOnAudio(3);  //These 2 lines wait 3 seconds then start the background audio
             StartCoroutine(coroutine);
-            //Screen.fullScreen = true;   //12/2/23 test to see what effect this has on handheld & desk/laptop in WebGL - not good...
         }
     }
     public void OnButtonOK()   //This is NOT using InputManager - canvas button OnClick
