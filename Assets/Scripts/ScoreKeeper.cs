@@ -45,8 +45,8 @@ public class ScoreKeeper : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        Screen.fullScreen = true;   // 3/9/24 was commented in StartNewGame()  put back to see what Build does w/it
-
+        // Screen.fullScreen = true;   // 3/9/24 was commented in StartNewGame()  put back to see what Build does w/it
+        // 3/10/24 took back out - permission errors in js, and no diff anyway
     }
     void Start()
     {
